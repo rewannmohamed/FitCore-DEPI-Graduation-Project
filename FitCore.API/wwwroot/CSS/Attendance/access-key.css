@@ -1,0 +1,185 @@
+/* ============================================================
+   Access Key (QR Key) — page-specific styles
+   Uses only design tokens from /CSS/style.css.
+============================================================ */
+
+/*.access-key-main {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    overflow-y: auto;
+}
+*/
+.access-key-page {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.page-intro {
+    text-align: center;
+}
+
+.page-intro h1 {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+.page-intro .subtitle {
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    margin-top: var(--space-2);
+}
+
+.msg-banner {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    background-color: var(--status-red-bg);
+    color: var(--status-red);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+}
+
+.qr-card {
+    background: var(--bg-card);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.qr-box {
+    width: 100%;
+    max-width: 256px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto var(--space-5);
+    background-color: var(--bg-main);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#qr-code {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.status-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background-color: var(--status-green-bg);
+    color: var(--status-green);
+}
+
+.status-badge.status-inactive {
+    background-color: var(--status-gray-bg);
+    color: var(--status-gray);
+}
+
+.qr-code-text {
+    font-size: var(--fs-xs);
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-6);
+    word-break: break-all;
+}
+
+
+
+.tip-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+}
+
+.tip-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tip-card h4 {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: var(--space-1);
+}
+
+.tip-card p {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.toast {
+    position: fixed;
+    bottom: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--primary-dark);
+    color: #fff;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base), transform var(--transition-base);
+    z-index: 10000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   Responsive
+============================================================ */
+@media (max-width: 720px) {
+    .access-key-page {
+        padding: var(--space-6) var(--space-4);
+    }
+
+    .qr-card {
+        padding: var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .access-key-page {
+        padding-top: var(--space-10);
+    }
+}

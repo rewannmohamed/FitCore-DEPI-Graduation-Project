@@ -1,0 +1,290 @@
+﻿
+.page-content {
+    padding: var(--space-6) var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: var(--space-6);
+}
+
+    .page-header h1 {
+        font-size: var(--fs-xl);
+        color: var(--primary-dark);
+        margin-bottom: var(--space-2);
+    }
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden; /* عشان حواف الجدول متخرجش برا الكارت */
+}
+
+.table-container {
+    overflow-x: auto; /* عشان الجدول ميبوظش الموبايل */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+    .table th {
+        background-color: var(--bg-main);
+        color: var(--text-muted);
+        font-size: var(--fs-xs);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: var(--space-4) var(--space-5);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .table td {
+        padding: var(--space-4) var(--space-5);
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-main);
+        font-size: var(--fs-sm);
+        vertical-align: middle;
+    }
+
+    .table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .table tbody tr:hover {
+        background-color: var(--bg-hover);
+    }
+
+.text-center {
+    text-align: center;
+}
+
+.loading-text {
+    color: var(--text-muted);
+    padding: var(--space-8) !important;
+}
+
+/* الأزرار اللي جوه الجدول */
+.action-buttons {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: var(--fs-xs);
+    border-radius: var(--radius-sm);
+}
+
+.btn-freeze {
+    background-color: var(--status-blue-bg);
+    color: var(--status-blue);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+    .btn-freeze:hover:not(:disabled) {
+        background-color: var(--status-blue);
+        color: #fff;
+    }
+
+    .btn-freeze:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+/* ============================================================
+   Freeze Modal (Popup) Styles
+============================================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.6); /* لون كحلي شفاف */
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity var(--transition-base);
+}
+
+    .modal-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+.modal-content {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(0);
+    transition: transform var(--transition-base);
+}
+
+.modal-overlay.hidden .modal-content {
+    transform: translateY(20px);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-5);
+    border-bottom: 1px solid var(--border-color);
+}
+
+    .modal-header h3 {
+        font-size: var(--fs-md);
+        color: var(--primary-dark);
+    }
+
+.modal-body {
+    padding: var(--space-5);
+}
+
+    .modal-body p {
+        color: var(--text-muted);
+        font-size: var(--fs-sm);
+        margin-bottom: var(--space-4);
+    }
+
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-main);
+    font-size: var(--fs-base);
+    color: var(--text-main);
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px var(--primary-blue-soft);
+    }
+
+.modal-footer {
+    padding: var(--space-4) var(--space-5);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    background-color: var(--bg-main);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.error-text {
+    color: var(--status-red);
+    font-size: var(--fs-xs);
+    margin-top: var(--space-2);
+}
+
+/* Status Badges */
+.badge-active {
+    background-color: var(--status-green-bg);
+    color: var(--status-green);
+}
+
+.badge-frozen {
+    background-color: var(--status-blue-bg);
+    color: var(--status-blue);
+}
+
+.badge-expired {
+    background-color: var(--status-red-bg);
+    color: var(--status-red);
+}
+
+.btn-unfreeze {
+    background-color: var(--status-green-bg);
+    color: var(--status-green);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.btn-unfreeze:hover {
+    background-color: var(--status-green);
+    color: #fff;
+}
+
+
+/* ============================================================
+   Membership Details Page Styles
+============================================================ */
+
+/* سهم الرجوع مع الأنيميشن */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-sm);
+    transition: color var(--transition-fast);
+}
+
+    .back-link:hover {
+        color: var(--primary-blue);
+    }
+
+    .back-link .arrow-icon {
+        transition: transform var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .back-link:hover .arrow-icon {
+        transform: translateX(-5px); /* السهم بيتحرك للشمال بنعومة */
+    }
+
+/* تنسيق كارت التفاصيل */
+.details-card {
+    padding: var(--space-6);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.detail-label {
+    color: var(--text-muted);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.detail-value {
+    color: var(--primary-dark);
+    font-size: var(--fs-md);
+    font-weight: 600;
+}
+
+/* فئة مساعدة للإخفاء */
+.hidden {
+    display: none !important;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity History | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Attendance/Attendance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body data-page="history">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content history-main">
+        <div id="header-container"></div>
+
+        <div class="page history-page">
+
+            <div class="page-intro">
+                <h1>Activity History</h1>
+                <p class="subtitle">Your recent attendance and check-in logs.</p>
+            </div>
+
+            <div id="msgBanner" class="msg-banner" style="display:none;"></div>
+
+            <!-- Stats -->
+            <section class="stats-grid" id="statsGrid" aria-busy="true">
+                <div class="stat-card">
+                    <p class="stat-label">Attendance Rate</p>
+                    <p class="stat-value" id="statAttendanceRate">--</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Days Attended</p>
+                    <p class="stat-value" id="statTotalDays">--</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Allowed Days</p>
+                    <p class="stat-value" id="statAllowedDays">--</p>
+                </div>
+            </section>
+
+            <!-- History list -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>Recent Entries</h3>
+                </div>
+                <div class="table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody"></tbody>
+                    </table>
+                </div>
+                <p class="empty-state" id="historyEmptyState" style="display:none;">No attendance records yet.</p>
+            </section>
+
+            <div class="load-more-wrap">
+                <button class="btn-outline" id="loadMoreBtn" type="button" style="display:none;">
+                    Load More <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/JS/admin/Components/api.js"></script>
+
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/user/Attendance/Attendance.js"></script>
+</body>
+</html>

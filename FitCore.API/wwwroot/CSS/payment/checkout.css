@@ -1,0 +1,204 @@
+﻿/* ============================================================
+   Checkout (Cart & Bookings) Page Styles
+============================================================ */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-10);
+}
+
+@media (max-width: 992px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-header h2 {
+    font-size: var(--fs-md);
+    color: var(--primary-dark);
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: var(--space-6) 0;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Item Card (Used for both Cart Products and Bookings) */
+.item-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-card);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+    .item-card:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex: 1;
+}
+
+.item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    background-color: var(--bg-hover);
+}
+
+.item-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-sm);
+    background-color: var(--status-blue-bg);
+    color: var(--status-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.item-details h4 {
+    font-size: var(--fs-base);
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.item-details p {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+}
+
+.item-price {
+    font-weight: 700;
+    font-size: var(--fs-base);
+    color: var(--primary-dark);
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Quantity Controls */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: var(--bg-hover);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+}
+
+.qty-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    transition: background-color var(--transition-fast);
+}
+
+    .qty-btn:hover {
+        background-color: var(--border-color);
+    }
+
+.qty-input {
+    width: 30px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: var(--fs-sm);
+}
+
+/* Remove/Cancel Buttons */
+.remove-btn {
+    background: transparent;
+    border: none;
+    color: var(--status-red);
+    font-size: var(--fs-md);
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+    .remove-btn:hover {
+        background-color: var(--status-red-bg);
+    }
+
+/* Summary Section */
+.summary-card {
+    background-color: var(--bg-card);
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 100px;
+}
+
+    .summary-card h3 {
+        font-size: var(--fs-md);
+        color: var(--primary-dark);
+        margin-bottom: var(--space-5);
+    }
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-base);
+    color: var(--text-muted);
+}
+
+.summary-divider {
+    border: none;
+    border-top: 1px dashed var(--border-color-strong);
+    margin: var(--space-4) 0;
+}
+
+.total-row {
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: var(--space-6);
+}
+
+.checkout-btn {
+    padding: 14px;
+    font-size: var(--fs-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}

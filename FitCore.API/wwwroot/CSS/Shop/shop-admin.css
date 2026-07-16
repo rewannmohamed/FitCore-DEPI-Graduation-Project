@@ -1,0 +1,83 @@
+﻿/* Shop Management (Admin) — small overrides on top of Bootstrap + style.css design tokens */
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-blue-hover);
+        border-color: var(--primary-blue-hover);
+    }
+
+.text-primary {
+    color: var(--primary-blue) !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-muted);
+    font-weight: 600;
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+    .nav-tabs .nav-link.active {
+        color: var(--primary-blue);
+        border-bottom: 3px solid var(--primary-blue);
+        background: transparent;
+    }
+
+    .nav-tabs .nav-link:hover {
+        border-color: transparent;
+        color: var(--primary-blue);
+    }
+
+.product-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    background-color: var(--bg-hover);
+    border: 1px solid var(--border-color);
+}
+
+.product-thumb-fallback {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.stock-badge {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.stock-badge.stock-ok {
+    color: var(--status-green);
+    background-color: var(--status-green-bg);
+}
+
+.stock-badge.stock-low {
+    color: var(--status-yellow);
+    background-color: var(--status-yellow-bg);
+}
+
+.stock-badge.stock-out {
+    color: var(--status-red);
+    background-color: var(--status-red-bg);
+}
+
+@media print {
+    #sidebar-container, #header-container, .modal, .card-footer, .btn, .nav-tabs {
+        display: none !important;
+    }
+}

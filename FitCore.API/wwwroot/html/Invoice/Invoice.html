@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice & Payment - Fit Core</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/invoice/invoice.css">
+</head>
+<body data-page="invoices">
+
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+        <div id="header-container"></div>
+
+        <div class="invoice-page-container">
+            <div class="invoice-box">
+                <div class="invoice-header">
+                    <h2><i class="fa-solid fa-file-invoice-dollar"></i> Invoice Details</h2>
+                    <span class="badge" id="invoice-status">Pending</span>
+                </div>
+
+                <div class="invoice-details">
+                    <p><strong>Invoice ID:</strong> <span id="display-invoice-id">Loading...</span></p>
+                    <p><strong>Description:</strong> <span id="display-desc">Subscription Plan</span></p>
+                    <p><strong>Total Amount:</strong> <span id="display-amount">0</span> EGP</p>
+                </div>
+
+                <div class="payment-section">
+                    <h3>Payment Method</h3>
+                    <select id="payment-method-select" class="form-input">
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Vodafone Cash">Vodafone Cash</option>
+                    </select>
+
+                    <button class="btn-primary w-100" style="margin-top: 15px;" onclick="processPayment()">
+                        <i class="fa-solid fa-credit-card"></i> Confirm Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/Invoice/Invoice.js"></script>
+</body>
+</html>

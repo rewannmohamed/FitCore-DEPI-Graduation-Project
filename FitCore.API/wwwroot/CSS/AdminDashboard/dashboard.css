@@ -1,0 +1,425 @@
+/* ============================================================
+   Admin Dashboard — page-specific styles
+   Uses only design tokens from /CSS/style.css so the page stays
+   visually consistent with the rest of the app.
+============================================================ */
+
+/* style.css centers .main-content for single-card pages (QR page).
+   The dashboard needs a normal top-to-bottom scrolling layout instead. */
+.dashboard-main {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.dashboard-page {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+/* ---------- Page header ---------- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.page-header h1 {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--primary-dark);
+    letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    margin-top: var(--space-1);
+}
+
+.page-header-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.msg-banner {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    background-color: var(--status-red-bg);
+    color: var(--status-red);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+}
+
+/* ---------- KPI cards ---------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+}
+
+.stat-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-top: var(--space-1);
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-md);
+    flex-shrink: 0;
+}
+
+.icon-blue { background-color: var(--status-blue-bg); color: var(--status-blue); }
+.icon-green { background-color: var(--status-green-bg); color: var(--status-green); }
+.icon-purple { background-color: var(--primary-blue-soft); color: var(--primary-blue); }
+.icon-orange { background-color: var(--status-yellow-bg); color: var(--status-yellow); }
+
+/* ---------- Shared card shell (charts + tables) ---------- */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-6);
+    align-items: stretch;
+}
+
+.tables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-5);
+    gap: var(--space-4);
+}
+
+.subtitle-sm {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.legend {
+    display: flex;
+    gap: var(--space-4);
+    flex-shrink: 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-primary { background-color: var(--primary-blue); }
+.dot-muted { background-color: var(--border-color-strong); }
+
+/* ---------- Revenue bar chart ---------- */
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-3);
+    height: 220px;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-color);
+}
+
+.bar-chart .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    height: 100%;
+}
+
+.bar-chart .bar-pair {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+}
+
+.bar-chart .bar {
+    width: 40%;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    min-height: 2px;
+    transition: opacity var(--transition-fast);
+}
+
+.bar-chart .bar:hover {
+    opacity: 0.8;
+}
+
+.bar-chart .bar-revenue { background-color: var(--primary-blue); }
+.bar-chart .bar-expense { background-color: var(--border-color-strong); }
+
+.bar-chart .bar-month-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+}
+
+/* ---------- Plan distribution ---------- */
+.plan-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.plan-row-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+}
+
+.plan-bar-track {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-hover);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.plan-bar-fill {
+    height: 100%;
+    background-color: var(--primary-blue);
+    border-radius: var(--radius-full);
+}
+
+/* ---------- Alerts list ---------- */
+.alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.alert-item {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-main);
+}
+
+.alert-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.alert-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.alert-title-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.alert-title {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.alert-time {
+    font-size: 11px;
+    color: var(--text-faint);
+    white-space: nowrap;
+}
+
+.alert-desc {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* ---------- Recent enrolments table ---------- */
+.table-scroll {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: var(--space-3);
+    font-size: var(--fs-sm);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.member-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.status-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+}
+
+.status-active { background-color: var(--status-green-bg); color: var(--status-green); }
+.status-pending { background-color: var(--status-yellow-bg); color: var(--status-yellow); }
+.status-expired,
+.status-cancelled { background-color: var(--status-red-bg); color: var(--status-red); }
+
+.empty-state {
+    color: var(--text-faint);
+    font-size: var(--fs-sm);
+    text-align: center;
+    padding: var(--space-6) 0;
+}
+
+/* ============================================================
+   Responsive breakpoints
+============================================================ */
+@media (max-width: 1100px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .tables-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .dashboard-page {
+        padding: var(--space-5);
+        gap: var(--space-6);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        align-items: flex-start;
+    }
+
+    .page-header-actions {
+        width: 100%;
+    }
+
+    .page-header-actions .btn-outline,
+    .page-header-actions .btn-primary {
+        flex: 1;
+    }
+
+    .bar-chart {
+        height: 160px;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Access Key | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Attendance/access-key.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body data-page="access-key">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content access-key-main">
+        <div id="header-container"></div>
+
+        <div class="page access-key-page">
+
+            <div class="page-intro">
+                <h1>Access Key</h1>
+                <p class="subtitle">Scan this code at the terminal to enter the facility.</p>
+            </div>
+
+            <div id="msgBanner" class="msg-banner" style="display:none;"></div>
+
+            <section class="qr-card" aria-busy="true" id="qrCard">
+                <div class="qr-box">
+                    <img id="qr-code" src="" alt="Access QR Code">
+                </div>
+
+                <div class="status-row">
+                    <span class="status-badge" id="statusBadge">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span id="statusBadgeText">Checking status…</span>
+                    </span>
+                </div>
+
+                <p class="qr-code-text" id="qrCodeText">--</p>
+
+
+            </section>
+
+            <section class="tip-card">
+                <div class="tip-icon"><i class="fa-solid fa-circle-info"></i></div>
+                <div>
+                    <h4>Pro Tip</h4>
+                    <p>Keep your screen brightness up so the terminal camera can read the code faster.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/user/Attendance/access-key.js"></script>
+</body>
+</html>

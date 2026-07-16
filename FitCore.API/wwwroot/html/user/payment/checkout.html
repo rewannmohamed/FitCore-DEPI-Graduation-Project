@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart & Bookings | FitCore</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/payment/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-page="checkout">
+
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+        <div id="header-container"></div>
+
+        <div class="container p-block checkout-layout">
+
+            <div class="items-section">
+
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-cart-shopping primary-blue"></i> My Cart Products</h2>
+                </div>
+                <div id="cartItemsContainer" class="items-list">
+                    <p class="text-muted">Loading cart items...</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="section-header">
+                    <h2><i class="fa-regular fa-calendar-check primary-blue"></i> My Bookings (Unpaid)</h2>
+                </div>
+                <div id="bookingItemsContainer" class="items-list">
+                    <p class="text-muted">Loading bookings...</p>
+                </div>
+
+            </div>
+
+            <div class="summary-section">
+                <div class="summary-card">
+                    <h3>Order Summary</h3>
+
+                    <div class="summary-row">
+                        <span>Products Subtotal</span>
+                        <span id="productsTotal">$0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Bookings Subtotal</span>
+                        <span id="bookingsTotal">$0.00</span>
+                    </div>
+
+                    <hr class="summary-divider">
+
+                    <div class="summary-row total-row">
+                        <span>Total</span>
+                        <span id="grandTotal" class="primary-blue">$0.00</span>
+                    </div>
+
+                    <button id="checkoutBtn" class="btn-primary w-100 checkout-btn">
+                        Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/JS/Auth/auth-common.js"></script>
+
+    <script src="/JS/user/Components/layout.js"></script>
+
+    <script src="/JS/user/payment/checkout.js"></script>
+</body>
+</html>

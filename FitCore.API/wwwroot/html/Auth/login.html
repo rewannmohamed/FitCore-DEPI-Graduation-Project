@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Auth/auth.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body class="auth-body">
+
+    <div class="auth-shell">
+        <div class="auth-brand">
+            <span class="brand-icon"><i class="fa-solid fa-dumbbell"></i></span>
+            <h1 style="display:inline-block;">Fit Core</h1>
+            <p>Enterprise-grade gym management.</p>
+        </div>
+
+        <div class="auth-panel">
+            <div class="auth-form-side">
+                <div class="role-tabs" id="roleTabs">
+                    <button type="button" class="active" data-role="Member">Member</button>
+                    <button type="button" data-role="Staff">Staff</button>
+                    <button type="button" data-role="Admin">Admin</button>
+                </div>
+
+                <h2>Welcome back</h2>
+                <p class="form-subtitle" id="formSubtitle">Log in to access your member dashboard.</p>
+
+                <div class="auth-error" id="loginError"></div>
+
+                <form id="loginForm">
+                    <div class="auth-field">
+                        <label>Email address</label>
+                        <div class="auth-input-wrap">
+                            <i class="fa-regular fa-envelope field-icon"></i>
+                            <input type="email" id="email" placeholder="name@fitcore.com" required autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label>Password</label>
+                        <div class="auth-input-wrap">
+                            <i class="fa-solid fa-lock field-icon"></i>
+                            <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                            <button type="button" class="toggle-visibility" id="togglePassword"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="auth-row-between">
+                        <a href="#" onclick="alert('Please contact the front desk to reset your password.'); return false;">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary auth-submit" id="loginBtn">Login</button>
+                </form>
+
+                <p class="auth-footnote">
+                    Already have an account? <a href="/html/Auth/signup.html" class="primary-blue-soft-text text-decoration-none">Sign up here</a>
+                </p>
+            </div>
+
+            <div class="auth-visual-side">
+                <div class="accent-line"></div>
+                <h2 id="visualTitle">Precision in every movement.</h2>
+                <p id="visualSubtitle">Access your personalized training metrics and real-time studio updates with the FitCore ecosystem.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/Auth/login.js"></script>
+</body>
+</html>

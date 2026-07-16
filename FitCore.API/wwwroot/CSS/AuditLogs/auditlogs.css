@@ -1,0 +1,307 @@
+﻿/* ============================================================
+auditlogs.css — Audit Trail Logs page
+بيستخدم design tokens من style.css (لازم يتحمّل بعده).
+============================================================ */
+
+.page-content {
+padding: var(--space-8) var(--space-10);
+}
+
+/* ---------- Header ---------- */
+.page-header {
+margin-bottom: var(--space-6);
+}
+
+.page-header h1 {
+font-size: var(--fs-xl);
+font-weight: 800;
+color: var(--text-main);
+letter-spacing: -0.02em;
+margin: var(--space-2) 0 4px 0;
+}
+
+.page-header .subtitle {
+color: var(--text-muted);
+font-size: var(--fs-md);
+}
+
+/* ---------- Filters bar ---------- */
+.filters-bar {
+display: flex;
+align-items: center;
+gap: var(--space-3);
+margin-bottom: var(--space-5);
+flex-wrap: wrap;
+}
+
+.search-input,
+.filter-select {
+height: 40px;
+padding: 0 var(--space-4);
+border: 1px solid var(--border-color);
+border-radius: var(--radius-sm);
+background-color: var(--bg-card);
+font-size: var(--fs-base);
+color: var(--text-main);
+outline: none;
+transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input {
+flex: 1;
+min-width: 220px;
+}
+
+.filter-select {
+min-width: 160px;
+cursor: pointer;
+}
+.search-input:focus,
+.filter-select:focus {
+border-color: var(--primary-blue);
+box-shadow: 0 0 0 3px var(--primary-blue-soft);
+}
+
+.filters-bar .btn-outline,
+.filters-bar .btn-primary {
+height: 40px;
+white-space: nowrap;
+}
+
+/* ---------- Table container ---------- */
+.table-container {
+background-color: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: var(--radius-lg);
+box-shadow: var(--shadow-sm);
+overflow: hidden;
+}
+
+#auditTable {
+width: 100%;
+border-collapse: collapse;
+}
+
+#auditTable thead th {
+text-align: left;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.05em;
+color: var(--text-faint);
+text-transform: uppercase;
+padding: var(--space-4) var(--space-5);
+background-color: var(--bg-main);
+border-bottom: 1px solid var(--border-color);
+white-space: nowrap;
+}
+
+#auditTable tbody tr {
+border-bottom: 1px solid var(--border-color);
+transition: background-color var(--transition-fast);
+}
+
+#auditTable tbody tr:last-child {
+border-bottom: none;
+}
+
+#auditTable tbody tr:hover {
+background-color: var(--bg-hover);
+}
+
+#auditTable tbody td {
+padding: var(--space-4) var(--space-5);
+font-size: var(--fs-base);
+color: var(--text-main);
+vertical-align: middle;
+}
+
+#auditTable td small {
+color: var(--text-faint);
+font-size: 11px;
+}
+
+/* User cell */
+.user-cell {
+display: flex;
+align-items: center;
+font-weight: 500;
+}
+
+/* Action cell */
+.action-cell {
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: var(--space-2);
+font-weight: 500;
+}
+
+.action-cell .id-tag {
+color: var(--text-faint);
+font-size: var(--fs-xs);
+font-weight: 400;
+}
+
+/* Module cell + colored dot */
+.module-cell {
+display: flex;
+align-items: center;
+gap: var(--space-2);
+font-weight: 500;
+}
+
+.dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+.dot.billing {
+background-color: var(--status-yellow);
+}
+
+.dot.members {
+background-color: var(--status-blue);
+}
+
+.dot.inventory {
+background-color: var(--status-green);
+}
+
+.dot.system {
+background-color: var(--status-gray);
+}
+
+/* Details button */
+#auditTable .btn-outline {
+width: 32px;
+height: 32px;
+padding: 0;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: var(--radius-full);
+font-size: var(--fs-base);
+}
+
+/* ---------- Loading state ---------- */
+.state-row td {
+text-align: center;
+padding: var(--space-10) var(--space-5) !important;
+color: var(--text-muted);
+font-size: var(--fs-md);
+}
+
+.state-row .state-icon {
+font-size: 28px;
+display: block;
+margin-bottom: var(--space-2);
+}
+
+.state-row.is-error td {
+color: var(--status-red);
+}
+
+.state-row .state-title {
+display: block;
+font-weight: 600;
+color: var(--text-main);
+margin-bottom: 2px;
+}
+
+.state-row .state-subtitle {
+display: block;
+font-size: var(--fs-sm);
+color: var(--text-muted);
+}
+
+/* Simple spinner for the loading state */
+.spinner {
+width: 20px;
+height: 20px;
+border: 2px solid var(--border-color);
+border-top-color: var(--primary-blue);
+border-radius: 50%;
+display: inline-block;
+margin-bottom: var(--space-2);
+animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+to {
+transform: rotate(360deg);
+}
+}
+
+/* ---------- Pagination ---------- */
+.pagination {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: var(--space-2);
+padding: var(--space-5);
+border-top: 1px solid var(--border-color);
+}
+
+.pagination button {
+min-width: 34px;
+height: 34px;
+padding: 0 8px;
+border: 1px solid var(--border-color);
+background-color: var(--bg-card);
+color: var(--text-muted);
+border-radius: var(--radius-sm);
+font-size: var(--fs-base);
+font-weight: 500;
+transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pagination button:hover {
+background-color: var(--bg-hover);
+color: var(--text-main);
+}
+
+.pagination button.active {
+background-color: var(--primary-blue);
+border-color: var(--primary-blue);
+color: #fff;
+}
+
+
+/* ============================================================
+   Table Responsiveness (Horizontal Scroll)
+============================================================ */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* بيشغل السكرول الأفقي لو المحتوى أكبر من الشاشة */
+    -webkit-overflow-scrolling: touch; /* بيخلي السكرول ناعم جداً على الموبايل (iOS) */
+}
+
+/* تعديل بسيط على الجدول عشان نمنعه من الانكماش */
+#auditTable {
+    width: 100%;
+    min-width: 900px; /* السطر السحري: لو الشاشة صغرت عن 900 بيكسل، الجدول هيحافظ على مقاسه والسكرول هيشتغل */
+    border-collapse: collapse;
+}
+
+/* ============================================================
+   Mobile Adjustments
+============================================================ */
+@media (max-width: 768px) {
+    /* تقليل الهوامش الخارجية للصفحة عشان ندي مساحة أكبر للمحتوى */
+    .page-content {
+        padding: var(--space-5) var(--space-3);
+    }
+
+    /* تظبيط شريط البحث عشان ياخد عرض الشاشة كله في الموبايل */
+    .search-input {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    /* تظبيط الفلاتر والأزرار عشان تملى الفراغات بشكل متناسق */
+    .filter-select {
+        flex: 1;
+    }
+}

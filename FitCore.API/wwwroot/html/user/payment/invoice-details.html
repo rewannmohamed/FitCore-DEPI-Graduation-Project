@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Details | FitCore</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/payment/Invoices.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-page="invoices">
+
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+        <div id="header-container"></div>
+
+        <div class="container p-block">
+
+            <div class="page-header">
+                <button class="btn-outline" onclick="window.history.back()">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Invoices
+                </button>
+                <button class="btn-primary" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Print Invoice
+                </button>
+            </div>
+
+            <div class="invoice-receipt" id="invoiceReceipt" style="display: none;">
+                <div class="receipt-header">
+                    <div class="receipt-brand">
+                        <h2><i class="fa-solid fa-dumbbell"></i> FitCore Gym</h2>
+                        <p class="text-muted">123 Fitness Ave, NY 10001</p>
+                    </div>
+                    <div class="receipt-meta">
+                        <h3 id="invNumber">Invoice #---</h3>
+                        <p>Date: <span id="invDate">---</span></p>
+                        <p>Status: <span id="invStatus" class="status-pill">---</span></p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: var(--space-6);">
+                    <h4 style="margin-bottom: var(--space-2);">Billed To:</h4>
+                    <p class="text-muted" id="invCustomerName">Loading...</p>
+                    <p class="text-muted" id="invDescription" style="margin-top: 8px;">---</p>
+                </div>
+
+                <h4 style="margin-bottom: var(--space-3);">Purchased Items</h4>
+                <div class="table-wrapper" style="margin-bottom: var(--space-6);">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Type</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th style="text-align: right;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invItemsBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="paymentsSection" style="display: none;">
+                    <h4 style="margin-bottom: var(--space-3);">Payment History</h4>
+                    <div class="table-wrapper" style="margin-bottom: var(--space-6);">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Method</th>
+                                    <th>Reference</th>
+                                    <th style="text-align: right;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invPaymentsBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="receipt-totals">
+                    <div class="totals-row">
+                        <span>Subtotal:</span>
+                        <span id="invSubtotal">$0.00</span>
+                    </div>
+                    <div class="totals-row">
+                        <span>Discount:</span>
+                        <span id="invDiscount">-$0.00</span>
+                    </div>
+                    <div class="totals-row grand-total">
+                        <span>Total Paid:</span>
+                        <span id="invTotal">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loadingMessage" style="text-align: center; padding: 50px; color: var(--text-muted);">
+                <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+                <p style="margin-top: 10px;">Loading invoice details...</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/user/payment/invoice-details.js"></script>
+</body>
+</html>

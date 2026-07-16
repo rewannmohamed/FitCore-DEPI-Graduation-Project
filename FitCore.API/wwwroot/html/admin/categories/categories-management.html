@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management | Fit Core Admin</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/CSS/Categories/categories-admin.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+</head>
+<body data-page="categories">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="container-fluid p-4 p-lg-5">
+
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+                <div>
+                    <h1 class="fw-bold mb-1">Category Management</h1>
+                    <p class="text-muted mb-0">Organize your shop products by adding, editing, or removing categories.</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary" id="openCreateCategoryBtn" data-bs-toggle="modal" data-bs-target="#createCategoryModal">
+                        <i class='bx bx-plus'></i> Add Category
+                    </button>
+                </div>
+            </div>
+
+            <div id="msgBanner" class="alert d-none" role="alert"></div>
+
+            <!-- Stats -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-info-subtle p-3 text-info rounded-3 fs-3"><i class='bx bx-category'></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Total Categories</span>
+                                    <h4 class="fw-bold m-0" id="statTotalCategories">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-primary-subtle p-3 text-primary rounded-3 fs-3"><i class='bx bx-package'></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Linked Products</span>
+                                    <h4 class="fw-bold m-0" id="statTotalLinkedProducts">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-warning-subtle p-3 text-warning rounded-3 fs-3"><i class="fa-solid fa-box-open"></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Empty Categories</span>
+                                    <h4 class="fw-bold m-0" id="statEmptyCategories">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <input type="text" id="categorySearchInput" class="form-control" placeholder="Search categories by name...">
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Category</th>
+                                <th>Products</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoriesTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Create Category Modal -->
+    <div class="modal fade" id="createCategoryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">Add New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createCategoryForm" class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold">Category Name</label>
+                            <input type="text" id="createCategoryName" class="form-control" required maxlength="100" placeholder="e.g. Supplements">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitCreateCategoryBtn" type="button">Save Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Category Modal -->
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">Edit Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCategoryForm" class="row g-3">
+                        <input type="hidden" id="editCategoryId">
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold">Category Name</label>
+                            <input type="text" id="editCategoryName" class="form-control" required maxlength="100">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitEditCategoryBtn" type="button">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/layout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/admin/categories/categories-management.js"></script>
+
+</body>
+</html>

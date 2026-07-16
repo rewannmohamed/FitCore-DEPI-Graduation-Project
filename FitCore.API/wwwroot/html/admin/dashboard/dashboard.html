@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Fit Core Admin</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/AdminDashboard/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+</head>
+<body data-page="dashboard">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content dashboard-main">
+        <div id="header-container"></div>
+
+        <div class="page dashboard-page">
+
+            <div class="page-header">
+                <div>
+                    <h1>Analytics Overview</h1>
+                    <p class="subtitle">Real-time operational performance data for FitCore Main Branch.</p>
+                </div>
+                <div class="page-header-actions">
+                    <button class="btn-outline" id="dateRangeBtn" type="button">
+                        <i class="fa-solid fa-calendar-days"></i> Last 30 Days
+                    </button>
+                    <button class="btn-primary" id="exportReportBtn" type="button">
+                        <i class="fa-solid fa-download"></i> Export Report
+                    </button>
+                </div>
+            </div>
+
+            <div id="msgBanner" class="msg-banner" style="display:none;"></div>
+
+            <!-- KPI Cards -->
+            <section class="stats-grid" id="statsGrid" aria-busy="true">
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-label">Total Members</p>
+                            <h2 class="stat-value" id="statTotalMembers">—</h2>
+                        </div>
+                        <div class="stat-icon icon-blue"><i class="fa-solid fa-users"></i></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-label">Monthly Revenue</p>
+                            <h2 class="stat-value" id="statMonthlyRevenue">—</h2>
+                        </div>
+                        <div class="stat-icon icon-green"><i class="fa-solid fa-sack-dollar"></i></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-label">Active Plans</p>
+                            <h2 class="stat-value" id="statActivePlans">—</h2>
+                        </div>
+                        <div class="stat-icon icon-purple"><i class="fa-solid fa-id-card-clip"></i></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-label">Daily Attendance</p>
+                            <h2 class="stat-value" id="statDailyAttendance">—</h2>
+                        </div>
+                        <div class="stat-icon icon-orange"><i class="fa-solid fa-bolt"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts -->
+            <section class="charts-grid">
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Revenue vs. Expenses</h3>
+                            <p class="subtitle-sm">Monthly breakdown</p>
+                        </div>
+                        <div class="legend">
+                            <span class="legend-item"><i class="legend-dot dot-primary"></i>Revenue</span>
+                            <span class="legend-item"><i class="legend-dot dot-muted"></i>Expenses</span>
+                        </div>
+                    </div>
+                    <div id="revenueChart" class="bar-chart"></div>
+                    <p class="empty-state" id="revenueEmptyState" style="display:none;">No revenue data yet.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Plan Distribution</h3>
+                    <div id="planDistribution" class="plan-list"></div>
+                    <p class="empty-state" id="planEmptyState" style="display:none;">No active plans yet.</p>
+                </div>
+            </section>
+
+            <!-- Tables -->
+            <section class="tables-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent System Alerts</h3>
+                    </div>
+                    <div id="alertsList" class="alerts-list"></div>
+                    <p class="empty-state" id="alertsEmptyState" style="display:none;">No recent alerts.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent Enrolments</h3>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Plan</th>
+                                    <th>Status</th>
+                                    <th>Join Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="enrolmentsTableBody"></tbody>
+                        </table>
+                    </div>
+                    <p class="empty-state" id="enrolmentsEmptyState" style="display:none;">No recent enrolments.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/admin/Components/layout.js"></script>
+    <script src="/JS/admin/dashboard/dashboard.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+</body>
+</html>

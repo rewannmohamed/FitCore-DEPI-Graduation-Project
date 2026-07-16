@@ -1,0 +1,124 @@
+﻿/* ============================================================
+   roles-permissions.css — read-only Roles & Permissions matrix.
+   Uses design tokens from style.css (must load after it).
+============================================================ */
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-5);
+}
+
+.role-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+}
+
+.role-card-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+}
+
+.role-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.role-icon.admin { background-color: var(--status-blue-bg); color: var(--status-blue); }
+.role-icon.trainer { background-color: var(--status-green-bg); color: var(--status-green); }
+.role-icon.receptionist { background-color: var(--status-yellow-bg); color: var(--status-yellow); }
+.role-icon.member { background-color: var(--status-gray-bg); color: var(--text-muted); }
+
+.role-card-head h3 {
+    font-size: var(--fs-md);
+    font-weight: 700;
+}
+
+.role-card-head p {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}
+
+.permission-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-3);
+}
+
+.permission-row:last-child { margin-bottom: 0; }
+
+.permission-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.permission-label i {
+    color: var(--text-faint);
+    width: 16px;
+}
+
+/* Read-only toggle — visually communicates on/off, not interactive.
+   Permissions here are fixed per role in code, not editable per-user,
+   so there is nothing to persist or toggle. */
+.ro-toggle {
+    width: 40px;
+    height: 22px;
+    border-radius: var(--radius-full);
+    position: relative;
+    background-color: var(--border-color);
+    cursor: not-allowed;
+    flex-shrink: 0;
+}
+
+.ro-toggle.on {
+    background-color: var(--primary-blue);
+}
+
+.ro-toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: transform var(--transition-fast);
+}
+
+.ro-toggle.on::after {
+    transform: translateX(18px);
+}
+
+.info-note {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue-hover);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-6);
+}
+
+.info-note i { margin-top: 2px; }

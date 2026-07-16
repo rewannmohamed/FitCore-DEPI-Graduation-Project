@@ -1,0 +1,154 @@
+﻿/* ============================================================
+   Sign Up Page Styles
+============================================================ */
+
+.auth-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--bg-main);
+    padding: var(--space-4);
+}
+
+.auth-card {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 440px;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+    .auth-header .brand-mark {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: var(--space-2);
+    }
+
+    .auth-header h2 {
+        color: var(--primary-dark);
+        font-size: var(--fs-lg);
+        font-weight: 800;
+    }
+
+    .auth-header p {
+        color: var(--text-muted);
+        font-size: var(--fs-sm);
+    }
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+    .form-group label {
+        font-size: var(--fs-sm);
+        font-weight: 600;
+        color: var(--text-main);
+    }
+
+    .form-group input {
+        font-family: var(--font-family);
+        padding: 10px 14px;
+        font-size: var(--fs-base);
+        border: 1px solid var(--border-color-strong);
+        border-radius: var(--radius-sm);
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px var(--primary-blue-soft);
+            background-color: var(--bg-card);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-faint);
+        }
+
+.w-100 {
+    width: 100%;
+    margin-top: var(--space-2);
+    padding-block: 12px;
+}
+
+.auth-footer {
+    margin-top: var(--space-6);
+    text-align: center;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}
+
+.primary-blue-soft-text {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+    .primary-blue-soft-text:hover {
+        color: var(--primary-blue-hover);
+        text-decoration: underline;
+    }
+
+/* Error Alert Box */
+.error-alert {
+    background-color: var(--status-red-bg);
+    color: var(--status-red);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Simple Spinner for Loading State */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

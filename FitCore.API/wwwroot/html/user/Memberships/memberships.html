@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Memberships | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Memberships/memberships.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body data-page="memberships">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <h1>My Memberships</h1>
+                <p class="subtitle">View your active packages, classes, and manage freezes.</p>
+            </div>
+
+            <div class="card table-container">
+                <table class="table" id="membershipsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                            <th>Remaining</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membershipsTableBody">
+                        <tr>
+                            <td colspan="7" class="text-center loading-text">Loading memberships...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="freezeModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Freeze Membership</h3>
+                <button class="icon-btn" id="closeModalBtnTop"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>How many days would you like to freeze this membership?</p>
+                <div class="form-group">
+                    <input type="number" id="freezeDaysInput" class="form-control" min="1" max="90" placeholder="e.g., 7">
+                </div>
+                <div id="freezeError" class="error-text hidden"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" id="closeModalBtn">Cancel</button>
+                <button class="btn-primary" id="confirmFreezeBtn">Confirm Freeze</button>
+            </div>
+        </div>
+    </div>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/user/Memberships/memberships.js"></script>
+</body>
+</html>

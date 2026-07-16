@@ -1,0 +1,460 @@
+﻿.page {
+    padding: var(--space-8) var(--space-10) 64px;
+    max-width: 1180px;
+}
+
+.page-intro .eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.page-intro h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.page-intro p {
+    max-width: 520px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.discipline-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+}
+
+.pill {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: var(--radius-full);
+}
+
+    .pill:hover {
+        border-color: var(--primary-blue);
+    }
+
+    .pill.active {
+        background-color: var(--primary-blue);
+        border-color: var(--primary-blue);
+        color: #fff;
+    }
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 9px var(--space-3);
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+}
+
+    .dropdown select {
+        border: none;
+        outline: none;
+        background: transparent;
+        font-weight: 500;
+        font-family: inherit;
+        color: var(--text-main);
+    }
+
+.view-toggle {
+    margin-left: auto;
+    display: flex;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 3px;
+    gap: 2px;
+}
+
+.view-btn {
+    width: 34px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: var(--text-faint);
+    border-radius: 8px;
+}
+
+    .view-btn.active {
+        background-color: var(--bg-hover);
+        color: var(--text-main);
+    }
+
+.msg-banner {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    display: none;
+}
+
+    .msg-banner.show {
+        display: block;
+    }
+
+    .msg-banner.success {
+        background-color: var(--status-green-bg);
+        color: var(--status-green);
+    }
+
+    .msg-banner.error {
+        background-color: var(--status-red-bg);
+        color: var(--status-red);
+    }
+
+/* ============================================================
+   Grid: the featured (first) card is allowed to be as tall as
+   its content needs (it spans 2 rows). Every OTHER card in the
+   grid is forced to the exact same fixed height as its siblings,
+   regardless of how many schedule slots/description length it has -
+   see .card.regular below for how that's enforced.
+============================================================ */
+.classes-grid {
+    display: block;
+    column-count: 3;
+    column-gap: var(--space-5);
+}
+
+    .classes-grid.list-view {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+        .classes-grid.list-view .card.featured {
+            grid-row: auto;
+        }
+
+.card {
+    display: inline-block; 
+    width: 100%;
+    break-inside: avoid;
+    margin-bottom: var(--space-5); 
+
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-5);
+    display: flex; 
+    flex-direction: column;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+    .card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+    }
+
+
+    .card.featured {
+        padding: 0;
+        overflow: hidden;
+    }
+
+.featured-media {
+    position: relative;
+    height: 230px;
+    background: linear-gradient(160deg, #F4C9A6 0%, #E8A2A8 45%, #7C6FB0 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+    .featured-media svg {
+        height: 100%;
+        width: auto;
+        opacity: 0.92;
+    }
+
+.featured-badges {
+    position: absolute;
+    top: var(--space-3);
+    left: var(--space-3);
+    display: flex;
+    gap: 6px;
+}
+
+.tag-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: var(--radius-full);
+    color: #fff;
+    background-color: rgba(15, 23, 42, 0.55);
+}
+
+    .tag-badge.blue {
+        background-color: var(--primary-blue);
+    }
+
+.featured-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+    .featured-body .class-name {
+        font-size: var(--fs-md);
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: var(--primary-dark);
+    }
+
+    .featured-body .tagline {
+        color: var(--text-muted);
+        font-size: var(--fs-sm);
+        margin-bottom: var(--space-4);
+    }
+
+.featured-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.instructor {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+}
+
+.avatar-sm {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--avatar-bg);
+    color: var(--avatar-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.time-tag {
+    text-align: right;
+    line-height: 1.2;
+}
+
+    .time-tag .time {
+        display: block;
+        font-size: var(--fs-md);
+        font-weight: 700;
+        color: var(--primary-blue);
+    }
+
+    .time-tag .when {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--text-faint);
+        text-transform: uppercase;
+    }
+
+/* ============================================================
+   Regular cards: all forced to the SAME fixed height, no matter
+   how much description or how many schedule slots they contain.
+   The schedule list becomes its own scroll area if it overflows,
+   and the button is pinned to the bottom via margin-top: auto.
+============================================================ */
+.card.regular {
+    height: auto;
+}
+
+    .card.regular .card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        flex-shrink: 0;
+    }
+
+.icon-chip {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+    .icon-chip.orange {
+        background-color: #FDECE0;
+        color: #EF7A3C;
+    }
+
+    .icon-chip.indigo {
+        background-color: var(--primary-blue-soft);
+        color: var(--primary-blue);
+    }
+
+.level-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: var(--radius-full);
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.card.regular .class-name {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--primary-dark);
+    flex-shrink: 0;
+}
+
+.card.regular .tagline {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+    .meta-row i {
+        font-size: 14px;
+        color: var(--text-faint);
+    }
+
+/* The schedule list is the one part whose content length varies card to
+   card - capping its height and letting it scroll internally is what
+   keeps every regular card the same overall height. */
+.card.regular .no-schedules,
+.card.regular > div.mt-3 {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.card .border-top.border-light {
+    flex-shrink: 0;
+}
+
+.card .btn-outline,
+.card .btn-primary {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.state-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 20px;
+    color: var(--text-muted);
+}
+
+.load-more-wrap {
+    text-align: center;
+    margin-top: var(--space-8);
+}
+
+.toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--primary-dark);
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base), transform var(--transition-base);
+    z-index: 50;
+}
+
+    .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+@media (max-width: 1080px) {
+    .classes-grid {
+        column-count: 2;
+    }
+
+    .card.featured {
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .classes-grid {
+        column-count: 1;
+    }
+
+    .card.featured {
+        grid-row: auto;
+    }
+
+    .card.regular {
+        height: auto;
+        min-height: 420px;
+    }
+
+    .page-intro h1 {
+        font-size: 32px;
+    }
+}

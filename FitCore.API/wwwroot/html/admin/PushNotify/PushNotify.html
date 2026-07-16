@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/PushNotify/PushNotify.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+</head>
+<body data-page="pushnotify">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <span class="badge">ADMIN TOOLS</span>
+                <h1>Push Notification</h1>
+                <p class="subtitle">Broadcast messages, alerts, and announcements to the system.</p>
+            </div>
+
+            <div class="push-grid">
+                <div class="card form-card">
+                    <h3 class="card-title">Compose Message</h3>
+                    <form id="pushForm">
+                        <div class="form-group">
+                            <label>Notification Type</label>
+                            <div class="type-badge">
+                                <i class="fa-solid fa-bullhorn"></i> General Announcement
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notifTitle">Title</label>
+                            <input type="text" id="notifTitle" class="form-control" placeholder="e.g., New Gym Offers!" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notifMessage">Message</label>
+                            <textarea id="notifMessage" class="form-control" rows="4" placeholder="Type your message here..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Target Audience (Select Roles)</label>
+                            <div class="checkbox-group" id="rolesGroup">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="targetRoles" value="0"> Admin
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="targetRoles" value="1"> Trainer
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="targetRoles" value="2" checked> Member
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="targetRoles" value="3"> Receptionist
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary w-100" id="sendBtn">
+                                <i class="fa-solid fa-paper-plane"></i> Send Notification
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card preview-card">
+                    <h3 class="card-title">Live Preview</h3>
+                    <div class="preview-container">
+                        <div class="notification-item unread" id="previewItem">
+                            <div class="notif-icon icon-info" id="previewIcon">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <div class="notif-content">
+                                <div class="notif-title" id="previewTitle">Notification Title</div>
+                                <div class="notif-desc" id="previewMessage">Your message will appear here...</div>
+                                <div class="notif-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/layout.js"></script>
+    <script src="/JS/admin/PushNotify/PushNotify.js"></script>
+
+</body>
+</html>

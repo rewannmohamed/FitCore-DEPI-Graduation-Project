@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reception Terminal | Fit Core Admin</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/receptionTerminal/reception-terminal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body data-page="reception-terminal">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content terminal-main">
+        <div id="header-container"></div>
+
+        <div class="page terminal-page">
+
+            <div class="page-header">
+                <div>
+                    <h1>Reception Terminal</h1>
+                    <p class="subtitle">Main Entrance • Member check-in &amp; verification</p>
+                </div>
+            </div>
+
+            <div id="scanResultBanner" class="scan-result-banner" style="display:none;">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span id="scanResultText"></span>
+                <span class="scan-result-time" id="scanResultTime"></span>
+            </div>
+
+            <div id="msgBanner" class="msg-banner" style="display:none;"></div>
+
+            <div class="terminal-grid">
+
+                <!-- Center: member profile card -->
+                <section class="card profile-card">
+                    <div class="card-header">
+                        <h3>Member Profile</h3>
+                    </div>
+                    <div class="profile-card-body" id="profileCardBody">
+                        <div class="profile-empty" id="profileEmptyState">
+                            <i class="fa-solid fa-id-card"></i>
+                            <p>Scan a QR code or verify a member to see their details here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right column -->
+                <aside class="terminal-side">
+
+                    <section class="card">
+                        <div class="card-header">
+                            <h3>Manual Entry</h3>
+                        </div>
+                        <div class="side-card-body">
+                            <label class="field-label" for="searchInput">Member ID, Email or QR Code</label>
+                            <input type="text" id="searchInput" class="text-input" placeholder="e.g. 100428 or name@email.com">
+                            <div class="btn-row">
+                                <button class="btn-primary" id="manualCheckInBtn" type="button">
+                                    <i class="fa-solid fa-check"></i> Manual Check-In
+                                </button>
+                                <button class="btn-outline" id="simulateScanBtn" type="button">
+                                    <i class="fa-solid fa-qrcode"></i> Simulate Scan
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card">
+                        <div class="card-header">
+                            <h3>Search Members</h3>
+                        </div>
+                        <div class="side-card-body">
+                            <input type="text" id="memberSearchInput" class="text-input" placeholder="Search by name, phone or email">
+                            <button class="btn-outline w-100" id="memberSearchBtn" type="button">
+                                <i class="fa-solid fa-magnifying-glass"></i> Search
+                            </button>
+                            <div id="memberSearchResults" class="search-results"></div>
+                        </div>
+                    </section>
+
+                    <section class="card">
+                        <div class="card-header recent-scans-header">
+                            <h3>Recent Scans</h3>
+                            <span class="live-pill">LIVE</span>
+                        </div>
+                        <div id="recentScansList" class="recent-scans-list" aria-busy="true"></div>
+                        <div class="side-card-footer">
+                            <button class="text-btn" id="viewDailyLogsBtn" type="button">View Full Attendance Log →</button>
+                        </div>
+                    </section>
+
+                </aside>
+            </div>
+
+        </div>
+    </main>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/Receptionist/Components/layout.js"></script>
+    <script src="/JS/Receptionist/receptionTerminal/reception-terminal.js"></script>
+</body>
+</html>

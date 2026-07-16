@@ -1,0 +1,48 @@
+﻿<div class="top-header">
+    <button class="icon-btn sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="header-actions">
+        <button class="icon-btn" aria-label="Notifications" id="notificationBellBtn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot" id="unreadBadge" style="display: none;"></span>
+        </button>
+
+        <div class="notification-panel" id="notificationPanel">
+            <div class="panel-header">
+                <div class="panel-header-top">
+                    <h3>Notifications</h3>
+                    <button class="icon-btn close-btn" id="closeNotificationBtn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="panel-actions">
+                    <button class="mark-read-btn" id="markAllReadBtn">Mark all as read</button>
+                </div>
+            </div>
+
+            <div class="panel-body" id="notificationList">
+            </div>
+
+            <div class="panel-footer" id="notificationFooter" style="display: none;">
+                <button class="btn-outline w-100" id="loadMoreNotifsBtn">Load More</button>
+            </div>
+        </div>
+        <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="header-divider"></div>
+
+        <a href="/html/Profile/profile.html" class="profile-chip" id="profileChip">
+            <div class="avatar" id="headerAvatar"><i class="fa-solid fa-user"></i></div>
+            <!--<div class="chip-meta">
+                <span class="chip-name" id="headerName">Loading…</span>
+                <span class="chip-role" id="headerRole">--</span>
+            </div>-->
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </div>
+</div>

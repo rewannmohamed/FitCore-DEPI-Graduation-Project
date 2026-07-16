@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Sessions | Fit Core </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/privateSessions/private-sessions.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body data-page="privateSessions">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <h1>Private Sessions</h1>
+                    <p class="subtitle">Schedule one-on-one training sessions and assign trainers to members.</p>
+                </div>
+            </div>
+
+            <div id="msgBanner" class="msg-banner"></div>
+
+            <div class="card">
+                <h2>Schedule a Private Session</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Trainer</label>
+                        <select id="trainerSelect"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Member User ID</label>
+                        <select id="memberSelect"></select>
+                    </div>
+                    <!--<div class="form-group">
+                        <label>Member User ID</label>
+                        <input type="number" id="memberUserId" class="text-input" placeholder="e.g. 5">
+                    </div>-->
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="sessionDate" class="text-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <input type="time" id="startTime" class="text-input" value="16:00">
+                    </div>
+                    <div class="form-group">
+                        <label>End Time</label>
+                        <input type="time" id="endTime" class="text-input" value="17:00">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: var(--space-4);">
+                    <label>Notes</label>
+                    <textarea id="notes" rows="2" placeholder="Focus areas, goals, etc."></textarea>
+                </div>
+                <button class="btn-primary" id="createSessionBtn">Schedule Session</button>
+            </div>
+
+            <div class="card">
+                <h2>All Sessions</h2>
+                <div class="form-grid" style="margin-bottom: var(--space-4);">
+                    <div class="form-group">
+                        <label>Filter by Trainer</label>
+                        <select id="filterTrainer"><option value="">All Trainers</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Filter by Status</label>
+                        <select id="filterStatus">
+                            <option value="">Any Status</option>
+                            <option value="0">Scheduled</option>
+                            <option value="1">Completed</option>
+                            <option value="2">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Trainer</th>
+                                <th>Member</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sessionsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/api.js"></script>
+    <!--<script src="/JS/admin/Components/layout.js"></script>-->
+    <script src="/JS/admin/private-sessions/private-sessions.js"></script>
+
+</body>
+</html>

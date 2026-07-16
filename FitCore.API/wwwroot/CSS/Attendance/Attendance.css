@@ -1,0 +1,180 @@
+/* ============================================================
+   Activity History — page-specific styles
+   Uses only design tokens from /CSS/style.css.
+============================================================ */
+
+.history-main {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.history-page {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.page-intro h1 {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+.page-intro .subtitle {
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    margin-top: var(--space-1);
+}
+
+.msg-banner {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    background-color: var(--status-red-bg);
+    color: var(--status-red);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+}
+
+/* ---------- Stats ---------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-top: var(--space-1);
+}
+
+/* ---------- Table card ---------- */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    padding: var(--space-3) var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--fs-sm);
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.type-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue);
+}
+
+.empty-state {
+    padding: var(--space-6);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+}
+
+.load-more-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+#loadMoreBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* ============================================================
+   Responsive
+============================================================ */
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+    }
+
+    .history-page {
+        padding: var(--space-6);
+    }
+}
+
+@media (max-width: 640px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: var(--space-3) var(--space-4);
+    }
+}

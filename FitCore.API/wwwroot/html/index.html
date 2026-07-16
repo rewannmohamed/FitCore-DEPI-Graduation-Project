@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Core</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/landing/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!--<link rel="stylesheet" href="/CSS/style.css">-->
+</head>
+<body class="overflow-y-scroll bgMain">
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bolder fs-3" href="#">Fit Core</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-flex flex-md-row flex-column justify-content-between gap-md-0 gap-3" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium  active" aria-current="page" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium " href="#plans">Plans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium " href="#classes">Classes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium " href="#about">About</a>
+                        </li>
+                    </ul>
+                    <div id="tokenHead" class="d-flex gap-2">
+                        
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="min-vh-100" style="margin-top: 80px; min-width: 100dvh;">
+        <!-- Hero -->
+        <section class="hero p-5">
+            <div class="d-flex flex-lg-row flex-column gap-4 justify-content-md-between justify-content-center'' align-items-center">
+                <div class="pe-xl-5 pe-0 d-flex flex-column text-lg-start text-center gap-3 ">
+                    <span class="bg-blue-soft w-md-25 w-50 font-sm fw-medium px-2 py-1 rounded-5 text-primary">NEXT-GEN FITNESS TECH</span>
+                    <h1 class="font-xl fw-bold">Transform your <span class="text-primary">fitness</span> business.</h1>
+                    <p class="fs-6 text-secondary-emphasis pe-lg-5 pe-0">A curated management ecosystem designed for modern elite gyms. Elevate the member journey with high-end tools for growth, retention, and operational mastery.</p>
+                    <div class="d-flex gap-4 justify-content-lg-start justify-content-center align-items-center">
+                        <a href="/html/Auth/register.html" class="btn btn-lg btn-primary fw-bolder fs-6">Get Started <i class='bx bx-right-arrow-alt'></i></a>
+                        <a href="#plans" class="btn btn-lg fw-bolder fs-6 btn-outline-primary" role="button">See Plans</a>
+                    </div>
+                </div>
+                <div class="hero-media position-relative">
+                    <div class="hero-image">
+                        <img alt="Gym Interior" src="/Images/Gym Interior.png" class="img-fluid h-100 rounded-5"  style="min-width: 550px; object-fit: cover;"/>
+                    </div>
+                    <div class="position bg-white py-3 px-2 d-flex bg-opacity-75 align-items-center gap-4 position-absolute rounded-4">
+                        <div class="bg-primary bg-gradient p-2 rounded-circle"><i class='bx bx-trending-up text-white'></i></div>
+                        <div>
+                            <div class="fw-bolder text-body-secondary font-sm">MEMBER GROWTH</div>
+                            <div class="fw-bolder font-md">+24.8%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem -->
+        <section class="p-5" id="features">
+            <div class="section-heading">
+                <h2 class="fs-2 fw-bold">The FitCore Ecosystem</h2>
+                <p class="text-body-secondary">Operational harmony for every touchpoint of your facility.</p>
+            </div>
+
+            <div class="row gx-5 py-4">
+
+                <div class="col-md-8 col-12 mb-md-0 mb-5">
+                    <div class="card border-0 p-3 rounded-5 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title bg-blue-soft px-2 py-1 rounded-4 text-primary fs-2 " style="width:50px;"><i class='bx bx-bar-chart-square'></i></h5>
+                            <h6 class="card-subtitle mb-2 fs-4 fw-bold py-2">Admin Authority</h6>
+                            <p class="card-text text-body-secondary">Comprehensive dashboard for business intelligence, automated billing, and real-time operational reporting.</p>
+                            <div class="eco-tags">
+                                <span class="badge">REAL-TIME ANALYTICS</span>
+                                <span class="badge">AUTOMATED BILLING</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 ">
+                    <div class="card p-3 rounded-5 border-0 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title bg-blue-soft px-2 py-1 rounded-4 text-primary fs-2" style="width:50px;"><i class='bx bx-mobile-alt'></i></h5>
+                            <h6 class="card-subtitle mb-2 fs-4 fw-bold py-2">Member Portal</h6>
+                            <p class="card-text text-body-secondary">Integrated mobile experience for class bookings, progress tracking, and community connection.</p>
+                            <div class="eco-media-dark d-flex justify-content-center align-items-center">
+                                <img src="/Images/Member App.png" alt="Member App" class="img-fluid w-100" style="object-fit: contain;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue text-light row gx-5 py-4 px-5 rounded-4">
+                <div class="col-xl-7 col-12">
+                    <div class="p-3 rounded-5 ">
+                        <h3>Reception Excellence</h3>
+                        <p class="pe-5">A seamless check-in experience that prioritizes face-to-face interaction while the system handles verification and scheduling in the background.</p>
+                        <ul class="reception-list row gx-4">
+                            <div class="p-3 col-md-6 col-12">
+                            <li><i class='bx bx-check-circle'></i> QR Access Control</li>
+                            <li><i class='bx bx-check-circle'></i> Instant Verification</li>
+                    </div>
+                    <div class="p-3 col-md-6 col-12">
+                        <li><i class='bx bx-check-circle'></i> POS Integration</li>
+                        <li><i class='bx bx-check-circle'></i> Queue Management</li>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-5 col-12 text-center">
+                <img src="/Images/Overlay+OverlayBlur.png"
+                     alt="Overlay"
+                     class="img-fluid w-100"
+                     style="object-fit: contain;">
+            </div>
+            </div>
+        </section>
+
+        <!-- Plans -->
+        <section class="plans p-5" id="plans">
+            <div class="section-heading">
+                <h2 class="fs-2 fw-bold text-center">Investment Plans</h2>
+                <p class="text-body-secondary text-center">Scalable solutions tailored for boutique studios and enterprise chains alike.</p>
+            </div>
+
+            <div class="row gx-5" id="plansGrid">
+                <!-- populated by landing.js -->
+            </div>
+
+            <div class="row gx-5 py-5">
+                <div class="col-md-3 col-sm-4 col-6 d-flex flex-column justify-content-center align-items-center">
+                    <span class="fw-bold fs-6">CLUBS MANAGED</span>
+                    <span class="fw-bold fs-4 text-blue">1,200+</span>
+                </div>
+                <div class="stat-item col-md-3 col-sm-4 col-6 d-flex flex-column justify-content-center align-items-center my-md-0 my-3">
+                    <span class="fw-bold fs-6">ACTIVE MEMBERS</span>
+                    <span class="fw-bold fs-4 text-blue">2.4M</span>
+                </div>
+                <div class="stat-item col-md-3 col-sm-4 col-6 d-flex flex-column justify-content-center align-items-center my-md-0 my-3">
+                    <span class="fw-bold fs-6">UPTIME</span>
+                    <span class="fw-bold fs-4 text-blue">99.9%</span>
+                </div>
+                <div class="stat-item col-md-3 col-sm-4 col-6 d-flex flex-column justify-content-center align-items-center">
+                    <span class="fw-bold fs-6">SUPPORT</span>
+                    <span class="fw-bold fs-4 text-blue">24/7</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="px-5 pb-5 w-100">
+        <div class="d-flex flex-md-row flex-column align-items-center justify-content-sm-between justify-content-center gap-4">
+            <div class="fw-bolder fs-4">Fit Core</div>
+            <div class="d-flex justify-content-center align-items-center gap-3 ">
+                <a href="#" class="text-decoration-none link-hover">Privacy Policy</a>
+                <a href="#" class="text-decoration-none link-hover">Terms of Service</a>
+                <a href="#" class="text-decoration-none link-hover">Contact</a>
+                <a href="#" class="text-decoration-none link-hover">Status</a>
+            </div>
+            <span class="text-body-secondary">© 2026 FitCore. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/landing/landing.js"></script>
+</body>
+</html>

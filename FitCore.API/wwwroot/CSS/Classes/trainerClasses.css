@@ -1,0 +1,190 @@
+﻿.page {
+    padding: var(--space-8) var(--space-10) 64px;
+    max-width: 1200px;
+}
+
+.page-header {
+    margin-bottom: var(--space-6);
+}
+
+    .page-header h1 {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--primary-dark);
+        margin-bottom: 6px;
+    }
+
+    .page-header .subtitle {
+        color: var(--text-muted);
+        max-width: 560px;
+        font-size: var(--fs-sm);
+        line-height: 1.5;
+    }
+
+.msg-banner {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    display: none;
+}
+
+    .msg-banner.show {
+        display: block;
+    }
+
+    .msg-banner.success {
+        background-color: var(--status-green-bg);
+        color: var(--status-green);
+    }
+
+    .msg-banner.error {
+        background-color: var(--status-red-bg);
+        color: var(--status-red);
+    }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-top: var(--space-2);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-5);
+}
+
+.class-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-5);
+}
+
+.class-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.class-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.class-card h3 {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 4px;
+}
+
+.class-card .desc {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+}
+
+.class-schedule-list {
+    list-style: none;
+    margin-bottom: var(--space-4);
+}
+
+    .class-schedule-list li {
+        display: flex;
+        justify-content: space-between;
+        font-size: var(--fs-xs);
+        color: var(--text-muted);
+        padding: 4px 0;
+        border-bottom: 1px dashed var(--border-color);
+    }
+
+        .class-schedule-list li:last-child {
+            border-bottom: none;
+        }
+
+.capacity-numbers {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.capacity-bar-track {
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--bg-hover);
+    overflow: hidden;
+}
+
+.capacity-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background-color: var(--primary-blue);
+}
+
+    .capacity-bar-fill.high {
+        background-color: var(--status-red);
+    }
+
+.pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+}
+
+    .pill.active {
+        background-color: var(--status-green-bg);
+        color: var(--status-green);
+    }
+
+    .pill.inactive {
+        background-color: var(--status-gray-bg);
+        color: var(--status-gray);
+    }
+
+.state-empty {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 64px 20px;
+    color: var(--text-muted);
+}

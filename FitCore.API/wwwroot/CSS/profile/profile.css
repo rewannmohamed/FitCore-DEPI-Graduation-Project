@@ -1,0 +1,403 @@
+﻿/* ============================================================
+   Profile page — built entirely on the shared design tokens
+   defined in style.css (--primary-blue, --text-main, --space-*, etc).
+   No new colors/spacing values are introduced here.
+============================================================ */
+
+.profile-page {
+    padding: var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* ---------- Larger avatar variant ---------- */
+.avatar-xl {
+    width: 88px;
+    height: 88px;
+    font-size: var(--fs-lg);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   Hero / summary card
+============================================================ */
+.profile-hero {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.profile-hero-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.profile-hero-info h1 {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--primary-dark);
+    margin-bottom: var(--space-2);
+}
+
+.profile-badges {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3);
+}
+
+.profile-meta {
+    list-style: none;
+    display: flex;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+}
+
+    .profile-meta li {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .profile-meta i {
+        color: var(--text-faint);
+        width: 14px;
+    }
+
+.profile-hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   Status / role badges — reuse the module color system
+============================================================ */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+    .status-pill::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: currentColor;
+    }
+
+    .status-pill.active {
+        color: var(--status-green);
+        background-color: var(--status-green-bg);
+    }
+
+    .status-pill.inactive {
+        color: var(--status-gray);
+        background-color: var(--status-gray-bg);
+    }
+
+    .status-pill.pending {
+        color: var(--status-yellow);
+        background-color: var(--status-yellow-bg);
+    }
+
+    .status-pill.suspended,
+    .status-pill.banned {
+        color: var(--status-red);
+        background-color: var(--status-red-bg);
+    }
+
+.role-chip {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    color: var(--status-blue);
+    background-color: var(--status-blue-bg);
+}
+
+/* ============================================================
+   Content grid
+============================================================ */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+}
+
+.card-title {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+    .card-title i {
+        color: var(--primary-blue);
+        font-size: var(--fs-base);
+    }
+
+/* ---------- Definition-list style info rows ---------- */
+.info-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-color);
+    gap: var(--space-4);
+}
+
+    .info-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .info-row dt {
+        color: var(--text-muted);
+        font-size: var(--fs-sm);
+        font-weight: 500;
+    }
+
+    .info-row dd {
+        color: var(--text-main);
+        font-size: var(--fs-sm);
+        font-weight: 600;
+        text-align: right;
+    }
+
+/* ---------- Roles card ---------- */
+.roles-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+/* ---------- Trainer bio ---------- */
+.trainer-bio {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   Membership "ticket" — signature element for the Member view
+============================================================ */
+.membership-card {
+    grid-column: span 2;
+}
+
+.ticket {
+    display: flex;
+    align-items: stretch;
+    background-color: var(--primary-blue-soft);
+    border: 1px dashed var(--border-color-strong);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.ticket-qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-5);
+    background-color: var(--bg-card);
+}
+
+    .ticket-qr img,
+    .ticket-qr canvas {
+        display: block;
+        border-radius: var(--radius-sm);
+    }
+
+.ticket-divider {
+    position: relative;
+    width: 0;
+    border-left: 2px dashed var(--border-color-strong);
+    flex-shrink: 0;
+}
+
+.notch {
+    position: absolute;
+    left: -9px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color-strong);
+}
+
+.notch-top {
+    top: -9px;
+}
+
+.notch-bottom {
+    bottom: -9px;
+}
+
+.ticket-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-1);
+    padding: var(--space-5) var(--space-6);
+}
+
+.ticket-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+}
+
+.ticket-name {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.ticket-hint {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   Responsive
+============================================================ */
+@media (max-width: 1024px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .membership-card {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 720px) {
+    .profile-page {
+        padding: var(--space-5);
+    }
+
+    /* 1. نخلي الكارت الرئيسي يوسط كل حاجة */
+    .profile-hero {
+        flex-direction: column;
+        align-items: center; /* توسيط بدل flex-start */
+        text-align: center; /* توسيط الكلام */
+        padding: var(--space-5);
+    }
+
+    /* 2. السر هنا: نخلي الأفاتار والاسم تحت بعض بدل جنب بعض */
+    .profile-hero-left {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+    }
+
+    /* 3. نصغر خط الاسم شوية عشان مايهربش بره الشاشة */
+    .profile-hero-info h1 {
+        font-size: var(--fs-lg);
+    }
+
+    /* 4. توسيط البادجات والمعلومات (زي الإيميل والرقم) */
+    .profile-badges,
+    .profile-meta {
+        justify-content: center;
+    }
+
+    /* تظبيط الأزرار زي ما إنتي كنتي عاملاها */
+    .profile-hero-actions {
+        width: 100%;
+        margin-top: var(--space-4); /* مسافة فوق الأزرار */
+    }
+
+        .profile-hero-actions button {
+            flex: 1;
+        }
+
+    /* =====================================
+       باقي كود التيكت بتاعك سليم وزي ما هو 
+    ===================================== */
+    .ticket {
+        flex-direction: column;
+    }
+
+    .ticket-divider {
+        width: auto;
+        height: 0;
+        border-left: none;
+        border-top: 2px dashed var(--border-color-strong);
+    }
+
+    .notch {
+        top: -9px;
+    }
+
+    .notch-top {
+        left: -9px;
+    }
+
+    .notch-bottom {
+        right: -9px;
+        left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-meta {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .header-search {
+        width: 100%;
+    }
+
+    .top-header {
+        padding: var(--space-4) var(--space-5);
+    }
+}

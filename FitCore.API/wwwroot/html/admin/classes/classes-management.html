@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes Management | Fit Core Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+    <link rel="stylesheet" href="/CSS/style.css">
+
+    <link rel="stylesheet" href="/CSS/Classes/adminCss.css">
+</head>
+<body data-page="classes-management">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content ">
+        <div id="header-container"></div>
+
+        <div class="page-content p-4">
+
+            <div class="page-header">
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+                    <div>
+                        <h1 class="fw-bold mb-1">Classes Management</h1>
+                        <p class="text-muted mb-0">Orchestrate your gallery's energy. Schedule, monitor, and optimize your studio capacity with surgical precision.</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-secondary" id="exportPdfBtn"><i class='bx bx-download'></i> Export PDF</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createClassModal">
+                            <i class='bx bx-plus'></i> Create Class
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="msgBanner" class="alert d-none" role="alert"></div>
+
+            <!-- Filters -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body d-flex flex-wrap align-items-center gap-3">
+                    <span class="text-uppercase text-muted small fw-bold">Filter by:</span>
+                    <select id="trainerFilter" class="form-select w-auto">
+                        <option value="">All Trainers</option>
+                    </select>
+                    <select id="typeFilter" class="form-select w-auto">
+                        <option value="">Class Type</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="hiit">HIIT</option>
+                        <option value="strength">Strength</option>
+                        <option value="spin">Spin</option>
+                    </select>
+                    <select id="statusFilter" class="form-select w-auto">
+                        <option value="">Any Status</option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="card shadow-sm mb-4">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Class Name</th>
+                                <th>Trainer</th>
+                                <th>Schedule</th>
+                                <th style="min-width:180px;">Capacity (this week)</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Sessions</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="classesTableBody"></tbody>
+                    </table>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center bg-white">
+                    <span class="text-muted small" id="paginationSummary"></span>
+                    <ul class="pagination mb-0" id="paginationControls"></ul>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="text-uppercase text-muted small fw-bold">Live Performance</span>
+                            <div class="fs-2 fw-bold" id="liveOccupancyValue">—</div>
+                            <p class="text-muted small mb-0">Average studio occupancy rate this week.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm h-100 text-bg-primary">
+                        <div class="card-body">
+                            <i class='bx bx-group fs-4'></i>
+                            <div class="fs-2 fw-bold" id="activeBookingsValue">—</div>
+                            <p class="small mb-0 opacity-75">Active class bookings this week</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm h-100 bg-light">
+                        <div class="card-body">
+                            <i class='bx bx-stopwatch fs-4 text-muted'></i>
+                            <div class="fs-2 fw-bold" id="classesThisWeekValue">—</div>
+                            <p class="text-muted small mb-0">Classes this week</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alert alert-warning h-100 mb-0 d-none" id="peakHourCard">
+                        <h6 class="fw-bold">Peak Hour Alert</h6>
+                        <p class="small mb-0" id="peakHourText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Class Modal (Bootstrap) -->
+    <div class="modal fade" id="createClassModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">Create & Schedule a Class</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-5">
+                            <label class="form-label small fw-semibold">Class Name</label>
+                            <input type="text" id="className" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Trainer</label>
+                            <select id="classTrainerSelect" class="form-select"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Capacity</label>
+                            <input type="number" id="classCapacity" class="form-control" min="1" value="10">
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            <label class="form-label small fw-semibold">Description</label>
+                            <input type="text" id="classDescription" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Number of Sessions</label>
+                            <input type="number" id="numSessions" class="form-control" min="1" value="10">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Price</label>
+                            <input type="number" id="Price" class="form-control" min="1" value="1000">
+                        </div>
+                    </div>
+
+
+                    <label class="form-label small fw-bold text-muted text-uppercase">Time Slots</label>
+                    <div id="scheduleRows"></div>
+                    <button class="btn btn-outline-secondary btn-sm" id="addScheduleRowBtn" type="button">+ Add Time Slot</button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitCreateClassBtn" type="button">Create Class</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editClassModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">edit & Schedule a Class</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-5">
+                            <label class="form-label small fw-semibold">Class Name</label>
+                            <input type="text" id="editClassName" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Capacity</label>
+                            <input type="number" id="editClassCapacity" class="form-control" min="1" value="10">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Status</label>
+                            <select id="editClassStatus" class="form-select " aria-label="status">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            <label class="form-label small fw-semibold">Description</label>
+                            <input type="text" id="editClassDescription" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Number of Sessions</label>
+                            <input type="number" id="editNumSessions" class="form-control" min="1" value="10">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Price</label>
+                            <input type="number" id="editPrice" class="form-control" min="1" value="1000">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitEditClassBtn" type="button">edit Class</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/admin/Components/layout.js"></script>
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/admin/classes/classes-management.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+</body>
+</html>

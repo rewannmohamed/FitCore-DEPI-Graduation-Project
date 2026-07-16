@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Auth/auth.css">
+    <link rel="stylesheet" href="/CSS/Auth/roles-permissions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/CSS/members/manageUsers.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+</head>
+<body data-page="users">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <div>
+                    <span class="badge">USER ADMINISTRATION</span>
+                    <h1>Manage Users</h1>
+                    <p class="subtitle">View every account, and promote a Member to Trainer when they're ready to coach.</p>
+                </div>
+                <div style="display:flex; gap: var(--space-3);">
+                    <!--<a href="/html/admin/staff/staff-create.html" class="btn-outline"><i class="fa-solid fa-user-tie"></i> New Staff</a>-->
+                    <a href="/html/admin/members/member-create.html" class="btn-primary"><i class="fa-solid fa-user-plus"></i> New Member</a>
+                </div>
+            </div>
+
+            <div id="msgBanner" class="msg-banner"></div>
+
+            <div class="filters-bar">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by name or email…">
+                <select class="filter-select" id="roleFilter">
+                    <option value="">All Roles</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Trainer">Trainer</option>
+                    <option value="Receptionist">Receptionist</option>
+                    <option value="Member">Member</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Roles</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr class="state-row"><td colspan="6">Loading users…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/layout.js"></script>
+    <script src="/JS/Auth/manage-users.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="FitCore.API/FitCore.API.csproj" />
+  <Project Path="FitCore.BLL/FitCore.BLL.csproj" />
+  <Project Path="FitCore.DAL/FitCore.DAL.csproj" />
+  <Project Path="FitCore.Shared/FitCore.Shared.csproj" Id="47342cf1-9cd0-489c-89ff-d39d94b6e01f" />
+</Solution>

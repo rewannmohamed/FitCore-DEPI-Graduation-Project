@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Details | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Memberships/memberships.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body data-page="memberships">
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <a href="/html/user/Memberships/memberships.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left arrow-icon"></i> Back to Memberships
+                </a>
+
+                <h1>Membership Details</h1>
+            </div>
+
+            <div class="card details-card" id="membershipDetailsContainer">
+
+                <div id="detailsLoading" class="text-center loading-text">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Loading details...
+                </div>
+
+                <div id="detailsContent" class="hidden">
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Name</span>
+                            <div class="detail-value" id="detailName">--</div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Type</span>
+                            <div class="detail-value"><span class="badge" id="detailType">--</span></div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Status</span>
+                            <div class="detail-value"><span class="badge" id="detailStatus">--</span></div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date</span>
+                            <div class="detail-value" id="detailStart">--</div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">End Date</span>
+                            <div class="detail-value" id="detailEnd">--</div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Remaining Sessions</span>
+                            <div class="detail-value" id="detailRemaining">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="detailsError" class="error-text text-center hidden"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/JS/Components/layout.js"></script>
+    <script src="/JS/Memberships/memberships.js"></script>
+</body>
+</html>

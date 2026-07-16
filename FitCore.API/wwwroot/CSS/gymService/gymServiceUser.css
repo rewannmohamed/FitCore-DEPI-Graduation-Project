@@ -1,0 +1,64 @@
+﻿:root {
+    --fitcore-bg: #f8fafc;
+    --fitcore-sidebar: #ffffff;
+    --fitcore-primary: #0052cc;
+    --fitcore-dark: #0f172a;
+    --fitcore-muted: #64748b;
+    --fitcore-border: #e2e8f0;
+}
+
+
+.position{
+    bottom:0px;
+    left:6px;
+}
+.premium-pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
+}
+
+    .premium-pricing-card.featured {
+        border: 2px solid var(--fitcore-primary);
+    }
+
+.card-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--fitcore-primary);
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.card-price {
+    font-size: 38px;
+    font-weight: 800;
+    margin: 16px 0 24px;
+}
+
+    .card-price span {
+        font-size: 14px;
+        color: var(--fitcore-muted);
+        font-weight: 500;
+    }
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+    flex-grow: 1;
+}
+
+    .features-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #475569;
+    }
+
+        .features-list li i {
+            color: var(--fitcore-primary);
+            font-size: 18px;
+        }

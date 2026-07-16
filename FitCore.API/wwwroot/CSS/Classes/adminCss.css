@@ -1,0 +1,55 @@
+﻿/* Small overrides on top of Bootstrap - keep this file short, let Bootstrap do the heavy lifting. */
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-blue-hover);
+        border-color: var(--primary-blue-hover);
+    }
+
+.text-primary {
+    color: var(--primary-blue) !important;
+}
+
+.text-bg-primary {
+    background-color: var(--primary-blue) !important;
+}
+
+.class-icon-chip {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.trainer-avatar-chip {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--avatar-bg);
+    color: var(--avatar-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.capacity-empty-text {
+    color: var(--text-faint);
+    font-size: 12px;
+}
+
+@media print {
+    #sidebar-container, #header-container, .modal, .card-footer, .btn {
+        display: none !important;
+    }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | FitCore</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="/CSS/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/CSS/Shop/Shop.css" rel="stylesheet">
+</head>
+<body data-page="Shop">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page p-4 p-lg-5">
+
+            <!-- Heading + toolbar -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <div>
+                    <span class="badge text-primary">Shop</span>
+                    <h1 class="fw-bold mt-2 mb-1">Premium Gear</h1>
+                    <p class="text-muted mb-0">Curated performance equipment for the modern athlete.</p>
+                </div>
+
+                <button class="btn btn-shop-primary d-flex align-items-center gap-2" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                    <span class="badge rounded-pill bg-danger" id="cartCount" style="display:none;">0</span>
+                </button>
+            </div>
+
+            <!-- Search / filter -->
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="position-relative">
+                        <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="left: 14px; top: 50%; transform: translateY(-50%);"></i>
+                        <input type="text" id="productSearchInput" class="form-control rounded-pill ps-5" placeholder="Search products...">
+                    </div>
+                </div>
+            </div>
+
+            <div id="shopMsgBanner" class="alert alert-danger" style="display:none;"></div>
+
+            <!-- Products grid -->
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4" id="productsGrid"></div>
+
+            <div class="text-center text-muted py-5" id="productsEmptyState" style="display:none;">
+                <i class="fa-solid fa-box-open fs-1 mb-3 d-block"></i>
+                No products available right now.
+            </div>
+
+            <div class="text-center py-5" id="productsLoadingState">
+                <div class="spinner-border" role="status" style="color: var(--primary-blue);">
+                    <span class="visually-hidden">Loading…</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Cart Offcanvas (Bootstrap) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="cartOffcanvasLabel">Your Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+
+            <div class="flex-grow-1 overflow-auto" id="cartItems"></div>
+
+            <p class="text-muted text-center py-4" id="cartEmptyState" style="display:none;">Your cart is empty.</p>
+
+            <div class="border-top pt-3 mt-3">
+                <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
+                    <span>Total</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+
+                <label class="form-label small text-muted" for="checkoutDescription">Order note (optional)</label>
+                <input type="text" id="checkoutDescription" class="form-control mb-3" placeholder="e.g. Deliver to front desk">
+
+                <button class="btn btn-shop-primary w-100" id="checkoutBtn" type="button">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast (Bootstrap) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="shopToast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="shopToastBody">Message</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/user/Shop/Shop.js"></script>
+</body>
+</html>

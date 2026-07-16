@@ -1,0 +1,55 @@
+/* Category Management (Admin) — small overrides on top of Bootstrap + style.css design tokens */
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-blue-hover);
+        border-color: var(--primary-blue-hover);
+    }
+
+.text-primary {
+    color: var(--primary-blue) !important;
+}
+
+.category-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    background-color: var(--primary-blue-soft);
+    color: var(--primary-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.products-count-badge {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    color: var(--status-blue);
+    background-color: var(--status-blue-bg);
+}
+
+.products-count-badge.empty {
+    color: var(--text-muted);
+    background-color: var(--bg-hover);
+}
+
+#categorySearchInput:focus,
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem var(--primary-blue-soft);
+}
+
+@media print {
+    #sidebar-container, #header-container, .modal, .card-footer, .btn {
+        display: none !important;
+    }
+}

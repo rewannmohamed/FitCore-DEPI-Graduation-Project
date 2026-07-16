@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Core | Member Dashboard</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/MemberDashboard/member-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body data-page="dashboard">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content home-main">
+
+        <div id="header-container"></div>
+
+        <div class="home-page">
+
+            <div id="homeMsgBanner" class="msg-banner" style="display:none;"></div>
+
+            <!-- Welcome header -->
+            <div class="welcome-row">
+                <div>
+                    <h1 class="welcome-title">Welcome back, <span id="welcomeName">Member</span></h1>
+                    <p class="welcome-sub">Here's what's happening with your membership today.</p>
+                </div>
+                <span class="membership-badge" id="membershipBadge">
+                    <span class="badge-dot"></span>
+                    <span id="membershipStatusText">Loading…</span>
+                </span>
+            </div>
+
+            <!-- Next class / check-in hero -->
+            <section class="hero-card">
+                <div class="hero-content">
+                    <span class="hero-label" id="nextClassLabel">Up Next</span>
+                    <h2 class="hero-class-name" id="nextClassName">—</h2>
+                    <p class="hero-class-meta" id="nextClassMeta">Loading your next class…</p>
+                    <button class="btn-checkin" id="checkInBtn" type="button">
+                        <i class="fa-solid fa-qrcode"></i> Check In Via Qr
+                    </button>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <div class="content-main">
+
+                    <!-- Stats -->
+                    <section class="stats-row">
+                        <div class="stat-card">
+                            <div class="ring-wrap">
+                                <svg viewBox="0 0 64 64" class="ring-svg">
+                                    <circle cx="32" cy="32" r="28" class="ring-track"></circle>
+                                    <circle cx="32" cy="32" r="28" class="ring-fill" id="attendanceRing"></circle>
+                                </svg>
+                                <span class="ring-value" id="attendanceRingValue">—</span>
+                            </div>
+                            <div>
+                                <p class="stat-label">Attendance</p>
+                                <p class="stat-value" id="attendanceValue">—</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <div>
+                                <p class="stat-label">Membership Status</p>
+                                <p class="stat-value" id="membershipStatusValue">—</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick access -->
+                    <section class="quick-access">
+                        <h3>Quick Access</h3>
+                        <div class="quick-grid">
+                            <a class="quick-item text-decoration-none" href="/html/user/Shop/Shop.html">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <p>Shop</p>
+                                <span>Browse gear</span>
+                            </a>
+                            <a class="quick-item text-decoration-none" href="/html/user/classes/classes-schedule.html">
+                                <i class="fa-solid fa-dumbbell"></i>
+                                <p>Book Class</p>
+                                <span>Reserve your spot</span>
+                            </a>
+                            <a class="quick-item text-decoration-none" href="/html/user/Attendance/access-key.html">
+                                <i class="fa-solid fa-qrcode"></i>
+                                <p>QR Entry</p>
+                                <span>Fast track access</span>
+                            </a>
+                            <a class="quick-item text-decoration-none" href="/html/user/bookings/my-bookings.html">
+                                <i class="fa-regular fa-calendar"></i>
+                                <p>Bookings</p>
+                                <span>My reservations</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Notifications -->
+                    <section class="notifications-section">
+                        <h3>Recent Updates</h3>
+                        <div class="notifications-list" id="notificationsList"></div>
+                        <p class="empty-state" id="notificationsEmptyState" style="display:none;">No recent updates.</p>
+                    </section>
+
+                </div>
+
+                <!-- Digital pass -->
+                <aside class="pass-panel">
+                    <p class="pass-panel-label">Your Digital Pass</p>
+                    <div class="pass-card">
+                        <div class="pass-qr-wrap">
+                            <img id="passQrImage" class="pass-qr" alt="Membership QR code" src="">
+                        </div>
+                        <h4 class="pass-member-name" id="passMemberName">—</h4>
+                        <p class="pass-scan-hint">SCAN FOR STUDIO ENTRY</p>
+                        <div class="pass-details">
+                            <div class="pass-detail-row">
+                                <span>Membership</span>
+                                <span id="passMembershipType">—</span>
+                            </div>
+                            <div class="pass-detail-row">
+                                <span>Valid Until</span>
+                                <span id="passValidUntil">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/user/MemberDashboard/member-dashboard.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+</body>
+</html>

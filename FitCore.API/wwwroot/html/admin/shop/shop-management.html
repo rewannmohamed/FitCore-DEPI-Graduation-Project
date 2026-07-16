@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Management | Fit Core Admin</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/CSS/shop/shop-admin.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+</head>
+<body data-page="shop">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="container-fluid p-4 p-lg-5">
+
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+                <div>
+                    <h1 class="fw-bold mb-1">Shop Management</h1>
+                    <p class="text-muted mb-0">Manage your product catalog, pricing, and stock levels from one place.</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-secondary" id="exportPdfBtn"><i class='bx bx-download'></i> Export PDF</button>
+                    <button class="btn btn-primary" id="openCreateProductBtn" data-bs-toggle="modal" data-bs-target="#createProductModal">
+                        <i class='bx bx-plus'></i> Add Product
+                    </button>
+                </div>
+            </div>
+
+            <div id="msgBanner" class="alert d-none" role="alert"></div>
+
+            <!-- Stats -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-primary-subtle p-3 text-primary rounded-3 fs-3"><i class='bx bx-package'></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Total Products</span>
+                                    <h4 class="fw-bold m-0" id="statTotalProducts">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-success-subtle p-3 text-success rounded-3 fs-3"><i class="fa-solid fa-store"></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Units In Stock</span>
+                                    <h4 class="fw-bold m-0" id="statTotalStock">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-warning-subtle p-3 text-warning rounded-3 fs-3"><i class="fa-solid fa-shop-slash"></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Low Stock Items</span>
+                                    <h4 class="fw-bold m-0" id="statLowStock">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm p-2">
+                        <div class="row g-0 justify-content-between align-items-center">
+                            <div class="col-4">
+                                <div class="bg-info-subtle p-3 text-info rounded-3 fs-3"><i class='bx bx-category'></i></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <span class="text-muted small d-block">Categories</span>
+                                    <h4 class="fw-bold m-0" id="statTotalCategories">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mb-3" id="shopTabs">
+                <li class="nav-item">
+                    <button class="nav-link active" id="tab-products-btn" data-bs-toggle="tab" data-bs-target="#tab-products" type="button">
+                        <i class='bx bx-package'></i> Products
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="tab-inventory-btn" data-bs-toggle="tab" data-bs-target="#tab-inventory" type="button">
+                        <i class='bx bx-boxes'></i> Inventory
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Products Tab -->
+                <div class="tab-pane fade show active" id="tab-products">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body row g-3">
+                            <div class="col-md-8">
+                                <input type="text" id="productSearchInput" class="form-control" placeholder="Search products by name or barcode...">
+                            </div>
+                            <div class="col-md-4">
+                                <select id="productCategoryFilter" class="form-select">
+                                    <option value="">All Categories</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Barcode</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Supplier</th>
+                                        <th class="text-end pe-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTableBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center bg-white">
+                            <span class="text-muted small" id="productsPaginationSummary"></span>
+                            <ul class="pagination mb-0" id="productsPaginationControls"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inventory Tab -->
+                <div class="tab-pane fade" id="tab-inventory">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <p class="text-muted mb-0">Every stock batch received for your products, most recent first.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStockModal">
+                            <i class='bx bx-plus'></i> Receive Stock
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Cost Price</th>
+                                        <th>Date Added</th>
+                                        <th>Expiry Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventoryTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Product Modal -->
+    <div class="modal fade" id="createProductModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">Add New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createProductForm" class="row g-3">
+                        <div class="col-md-8">
+                            <label class="form-label small fw-semibold">Product Name</label>
+                            <input type="text" id="createName" class="form-control" required placeholder="Whey Protein Isolate">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Category</label>
+                            <select id="createCategory" class="form-select" required></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Price (EGP)</label>
+                            <input type="number" id="createPrice" step="0.01" min="0" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Barcode</label>
+                            <input type="text" id="createBarcode" class="form-control" placeholder="e.g. 6224001234567">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Reorder Level</label>
+                            <input type="number" id="createReorderLevel" min="0" class="form-control" value="10" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Supplier (optional)</label>
+                            <select id="createSupplier" class="form-select">
+                                <option value="">No supplier</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Image URL (optional)</label>
+                            <input type="text" id="createImageUrl" class="form-control" placeholder="/Images/Product.png">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold">Description</label>
+                            <textarea id="createDescription" class="form-control" rows="3" placeholder="Short description of the product"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitCreateProductBtn" type="button">Save Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm" class="row g-3">
+                        <input type="hidden" id="editProductId">
+                        <div class="col-md-8">
+                            <label class="form-label small fw-semibold">Product Name</label>
+                            <input type="text" id="editName" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Category</label>
+                            <select id="editCategory" class="form-select" required></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Price (EGP)</label>
+                            <input type="number" id="editPrice" step="0.01" min="0" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Barcode</label>
+                            <input type="text" id="editBarcode" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold">Reorder Level</label>
+                            <input type="number" id="editReorderLevel" min="0" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Supplier (optional)</label>
+                            <select id="editSupplier" class="form-select">
+                                <option value="">No supplier</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Image URL (optional)</label>
+                            <input type="text" id="editImageUrl" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold">Description</label>
+                            <textarea id="editDescription" class="form-control" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitEditProductBtn" type="button">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Stock Modal -->
+    <div class="modal fade" id="addStockModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold">Receive Stock</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addStockForm" class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold">Product</label>
+                            <select id="stockProduct" class="form-select" required></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Quantity</label>
+                            <input type="number" id="stockQuantity" min="1" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Cost Price (EGP)</label>
+                            <input type="number" id="stockCostPrice" min="0" step="0.01" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold">Expiry Date (optional)</label>
+                            <input type="date" id="stockExpiryDate" class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="submitAddStockBtn" type="button">Save Stock</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/admin/Components/layout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/admin/shop/shop-management.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile · Gym Manager</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="/CSS/profile/profile.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- QR code generator (used only for members) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️‍♂️</text></svg>">
+</head>
+<body data-page="profile">
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+        <div id="header-container"></div>
+
+        <main class="profile-page" id="profilePage">
+
+            <!-- ===== Profile summary card ===== -->
+            <section class="profile-hero" id="profileHero">
+                <div class="profile-hero-left">
+                    <div class="avatar avatar-xl" id="heroAvatar">--</div>
+                    <div class="profile-hero-info">
+                        <h1 id="profileName">—</h1>
+                        <div class="profile-badges" id="profileBadges"><!-- role + status badges injected --></div>
+                        <ul class="profile-meta">
+                            <li><i class="fa-regular fa-envelope"></i><span id="profileEmail">—</span></li>
+                            <li><i class="fa-solid fa-phone"></i><span id="profilePhone">—</span></li>
+                            <li><i class="fa-regular fa-calendar"></i><span>Joined <span id="profileJoinDate">—</span></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile-hero-actions">
+                    <button class="btn-outline" id="editProfileBtn"><i class="fa-solid fa-pen"></i>&nbsp; Edit profile</button>
+                    <button class="btn-primary" id="shareProfileBtn"><i class="fa-solid fa-share-nodes"></i>&nbsp; Share</button>
+                </div>
+            </section>
+
+            <div class="profile-grid">
+
+                <!-- ===== Personal information ===== -->
+                <section class="card">
+                    <h3 class="card-title">Personal information</h3>
+                    <dl class="info-list">
+                        <div class="info-row">
+                            <dt>Full name</dt>
+                            <dd id="infoFullName">—</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Email</dt>
+                            <dd id="infoEmail">—</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Phone number</dt>
+                            <dd id="infoPhone">—</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Status</dt>
+                            <dd id="infoStatus">—</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Join date</dt>
+                            <dd id="infoJoinDate">—</dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <!-- ===== Roles ===== -->
+                <section class="card">
+                    <h3 class="card-title">Roles</h3>
+                    <div class="roles-wrap" id="rolesWrap"><!-- role chips injected --></div>
+                </section>
+
+                <!-- ===== Trainer details (shown only if TrainerDto present) ===== -->
+                <section class="card" id="trainerCard" hidden>
+                    <h3 class="card-title"><i class="fa-solid fa-dumbbell"></i>&nbsp; Trainer details</h3>
+                    <dl class="info-list">
+                        <div class="info-row">
+                            <dt>Specialization</dt>
+                            <dd id="trainerSpecialization">—</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Working hours</dt>
+                            <dd id="trainerWorkingHours">—</dd>
+                        </div>
+                    </dl>
+                    <p class="trainer-bio" id="trainerBio"></p>
+                </section>
+
+                <!-- ===== Membership / QR card (shown only if MemberDto present) ===== -->
+                <section class="card membership-card" id="memberCard" hidden>
+                    <h3 class="card-title"><i class="fa-solid fa-id-card-clip"></i>&nbsp; Membership pass</h3>
+                    <div class="ticket">
+                        <div class="ticket-qr" id="qrCodeHolder"></div>
+                        <div class="ticket-divider">
+                            <span class="notch notch-top"></span>
+                            <span class="notch notch-bottom"></span>
+                        </div>
+                        <div class="ticket-details">
+                            <span class="ticket-label">Member</span>
+                            <span class="ticket-name" id="ticketName">—</span>
+                            <span class="ticket-hint">Scan at the front desk for check-in</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/Profile/profile.js"></script>
+    <!--<script src="/js/admin/Components/layout.js"></script>-->
+</body>
+</html>

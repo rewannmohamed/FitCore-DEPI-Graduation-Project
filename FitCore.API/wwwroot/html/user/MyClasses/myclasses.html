@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Classes | Fit Core</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Shared design tokens (colors, spacing, sidebar/header, buttons...) -->
+    <link href="/CSS/style.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Page-specific overrides, loaded last so brand colors win over Bootstrap defaults -->
+    <link href="/CSS/Classes/myclasses.css" rel="stylesheet">
+</head>
+<body data-page="myclasses">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page p-4 p-lg-5">
+
+            <!-- Heading + toolbar -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <div>
+                    <span class="badge text-primary">History</span>
+                    <h1 class="fw-bold mt-2 mb-1">My Classes</h1>
+                    <p class="text-muted mb-0">Classes and gym services you've attended or paid for.</p>
+                </div>
+
+                <select id="statusFilter" class="form-select" style="width: 200px;">
+                    <option value="all" selected>All (Attended + Paid)</option>
+                    <option value="attended">Attended only</option>
+                    <option value="paid">Paid only</option>
+                </select>
+            </div>
+
+            <div id="msgBanner" class="alert alert-danger" style="display:none;"></div>
+
+            <!-- Stats -->
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <span class="stat-label">ATTENDED CLASSES</span>
+                        <div class="stat-value" id="attendedClassesCount">0</div>
+                        <i class="fa-solid fa-person-running stat-icon"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <span class="stat-label">PAID CLASSES</span>
+                        <div class="stat-value" id="paidClassesCount">0</div>
+                        <i class="fa-solid fa-circle-dollar-to-slot stat-icon"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <span class="stat-label">ATTENDED SERVICES</span>
+                        <div class="stat-value" id="attendedServicesCount">0</div>
+                        <i class="fa-solid fa-spa stat-icon"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <span class="stat-label">PAID SERVICES</span>
+                        <div class="stat-value" id="paidServicesCount">0</div>
+                        <i class="fa-solid fa-receipt stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classes section -->
+            <div class="section-heading">
+                <h2>Classes</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5" id="classesGrid"></div>
+            <div class="text-center text-muted py-4" id="classesEmptyState" style="display:none;">
+                <i class="fa-solid fa-dumbbell fs-2 mb-2 d-block"></i>
+                No attended or paid classes yet.
+            </div>
+
+            <!-- Gym Services section -->
+            <div class="section-heading">
+                <h2>Gym Services</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4" id="servicesGrid"></div>
+            <div class="text-center text-muted py-4" id="servicesEmptyState" style="display:none;">
+                <i class="fa-solid fa-spa fs-2 mb-2 d-block"></i>
+                No attended or paid gym services yet.
+            </div>
+
+            <div class="text-center py-5" id="loadingState">
+                <div class="spinner-border" role="status" style="color: var(--primary-blue);">
+                    <span class="visually-hidden">Loading…</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/admin/Components/api.js"></script>
+    <script src="/JS/Auth/auth-common.js"></script>
+    <script src="/JS/user/Components/layout.js"></script>
+    <script src="/JS/user/MyClasses/myclasses.js"></script>
+</body>
+</html>

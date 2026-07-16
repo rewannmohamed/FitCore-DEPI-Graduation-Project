@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Fit Core</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/Settings/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body data-page="settings">
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <h1>Settings</h1>
+                <p class="subtitle">Manage system notifications and admin tools.</p>
+            </div>
+
+            <div class="settings-container">
+
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <div class="icon-wrapper bg-blue">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3>Push Notifications</h3>
+                    </div>
+                    <div class="settings-card-body">
+                        <p>Send custom announcements, alerts, and push notifications directly to all gym members.</p>
+                        <a href="/HTML/admin/PushNotify/PushNotify.html" class="btn-primary w-100" style="display: flex; align-items: center; justify-content: center; text-decoration: none; height: 44px;">
+                            <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Send Push Notifications
+                        </a>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <div class="icon-wrapper bg-green">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <h3>Audit Trails</h3>
+                    </div>
+                    <div class="settings-card-body">
+                        <p>Monitor system logs, track admin actions, and review critical data modifications.</p>
+                        <a href="/HTML/admin/AuditLogs/auditlogs.html" class="btn-primary w-100" style="display: flex; align-items: center; justify-content: center; text-decoration: none; height: 44px;">
+                            <i class="fa-solid fa-eye" style="margin-right: 8px;"></i> View Audit Trails
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/JS/admin/Components/layout.js"></script>
+</body>
+</html>

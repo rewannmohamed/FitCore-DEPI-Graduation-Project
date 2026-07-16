@@ -1,0 +1,46 @@
+﻿.error-body {
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.error-code {
+    font-size: 160px;
+    font-weight: 800;
+    color: var(--border-color);
+    line-height: 1;
+    user-select: none;
+}
+
+.shape-blob-tl {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 140px;
+    height: 100px;
+    border: 2px solid var(--border-color);
+    border-radius: 24px;
+    transform: rotate(-8deg);
+    opacity: .6;
+}
+
+.shape-circle-br {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    width: 190px;
+    height: 190px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+}
+
+    .shape-circle-br::after {
+        content: '';
+        position: absolute;
+        inset: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+    }

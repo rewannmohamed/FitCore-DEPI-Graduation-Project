@@ -1,0 +1,77 @@
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.class-card-custom {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+    .class-card-custom:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    }
+
+.btn-pill.active {
+    background-color: #0047FF !important;
+    color: #ffffff !important;
+    border-color: #0047FF !important;
+}
+
+.booking-status-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.status-confirmed {
+    background-color: #e6f7ed;
+    color: #1f9254;
+}
+
+.status-cancelled {
+    background-color: #fdebee;
+    color: #de350b;
+}
+.bgMain {
+    background-color: #F8FAFC;
+}
+/* ---------- Pagination ---------- */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-top: 1px solid var(--border-color);
+}
+
+    .pagination button {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 8px;
+        border: 1px solid var(--border-color);
+        background-color: var(--bg-card);
+        color: var(--text-muted);
+        border-radius: var(--radius-sm);
+        font-size: var(--fs-base);
+        font-weight: 500;
+        transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+        .pagination button:hover {
+            background-color: var(--bg-hover);
+            color: var(--text-main);
+        }
+
+        .pagination button.active {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: #fff;
+        }
