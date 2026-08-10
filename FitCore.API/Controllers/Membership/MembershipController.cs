@@ -20,7 +20,7 @@ namespace FitCore.API.Controllers
     {
         private readonly IMembershipService _membershipService;
         private readonly FitCoreDbContext _dbContext;
-        private readonly ICurrentUserService _currentUser; 
+        private readonly ICurrentUserService _currentUser;  
         
         public MembershipsController(IMembershipService membershipService, FitCoreDbContext dbContext,ICurrentUserService currentUser)
         {
